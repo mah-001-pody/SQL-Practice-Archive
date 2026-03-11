@@ -67,3 +67,5 @@ select top 5 ListPrice
 from dbo.DimProduct
 order by ListPrice DESC
 -- End
+-- dkasdkajbnsf
+-- dànkjsdnf
