@@ -67,5 +67,51 @@ select top 5 ListPrice
 from dbo.DimProduct
 order by ListPrice DESC
 -- End
--- dkasdkajbnsf
--- dànkjsdnf
+
+-- Phần 3: Tổng Hợp Dữ Liệu
+
+-- Bài tập 10: Tính giá niêm yết trung bình của tất cả sản phẩm
+select AVG(ListPrice) as AverageofListPrice
+from dbo.DimProduct
+-- End
+
+-- Bài tập 11: Tìm giá niêm yết cao nhất và thấp nhất
+select Max(ListPrice) as MaxofListPrice
+, Min(ListPrice) as MinofListPrice
+from dbo.DimProduct 
+-- End 
+
+-- Bài tập 12: Đếm tổng số lượng sản phẩm
+select Count(ProductKey) as TotalProduct
+from dbo.DimProduct 
+-- End
+
+-- Phần 4: Nhóm Dữ Liệu & Lọc Nhóm
+
+-- Bài tập 13:
+select Count(ProductKey) as ProductbyColor
+from dbo.DimProduct 
+group by Color 
+-- End
+
+-- Bài tập 14:
+select Sum(StandardCost) as SumofStandardCostbyColor
+from dbo.DimProduct
+group by Color 
+-- End
+
+-- Bài tập 15: 
+select color
+, Count(ProductKey) as TotalProductbyColor
+from dbo.DimProduct 
+group by Color
+having Sum(ProductKey) >= 10
+-- End
+
+-- Bài tập 16:
+select Color
+, AVG(ListPrice) as AVGofListPrice
+from dbo.DimProduct
+group by Color 
+having AVG(ListPrice) > 500
+--End
